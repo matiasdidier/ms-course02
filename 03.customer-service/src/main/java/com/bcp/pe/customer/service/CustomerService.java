@@ -1,7 +1,7 @@
 package com.bcp.pe.customer.service;
 
-import com.bcp.pe.customer.repository.entity.Customer;
-import com.bcp.pe.customer.repository.entity.Region;
+import com.bcp.pe.customer.entity.Customer;
+import com.bcp.pe.customer.entity.Region;
 
 import java.util.List;
 

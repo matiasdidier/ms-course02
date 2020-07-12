@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping(name = "/invoices")
+@RequestMapping("/invoices")
 public class InvoiceRest {
     @Autowired
     InvoiceService invoiceService;
@@ -39,7 +39,7 @@ public class InvoiceRest {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Invoice>  getInvoice(@PathVariable(value = "id") Long id){
+    public ResponseEntity<Invoice>  getInvoice(@PathVariable("id") Long id){
         log.info("[getInvoice] Inicio");
         Invoice invoice = invoiceService.getInvoice(id);
         if (invoice == null){

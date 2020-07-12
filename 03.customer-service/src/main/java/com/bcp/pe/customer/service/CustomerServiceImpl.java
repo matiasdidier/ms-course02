@@ -1,10 +1,9 @@
 package com.bcp.pe.customer.service;
 
 import com.bcp.pe.customer.repository.CustomerRepository;
-import com.bcp.pe.customer.repository.entity.Customer;
-import com.bcp.pe.customer.repository.entity.Region;
+import com.bcp.pe.customer.entity.Customer;
+import com.bcp.pe.customer.entity.Region;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

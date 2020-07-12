@@ -1,4 +1,5 @@
-package com.bcp.pe.customer.repository.entity;
+package com.bcp.pe.customer.entity;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

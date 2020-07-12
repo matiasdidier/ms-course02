@@ -1,7 +1,7 @@
 package com.bcp.pe.customer.controller;
 
-import com.bcp.pe.customer.repository.entity.Customer;
-import com.bcp.pe.customer.repository.entity.Region;
+import com.bcp.pe.customer.entity.Customer;
+import com.bcp.pe.customer.entity.Region;
 import com.bcp.pe.customer.service.CustomerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,9 +28,9 @@ public class CustomerRest {
     CustomerService customerService;
 
     @GetMapping
-    public ResponseEntity<List<Customer>> listAllCustomer(@RequestParam(name = "regionId", required = false) Long regionId){
+    public ResponseEntity<List<Customer>> listAllCustomers(@RequestParam(name = "regionId", required = false) Long regionId){
         log.info("[listAllCustomer] Inicio");
-        List<Customer> customers = null;
+        List<Customer> customers = new ArrayList<>();;
         Region region = null;
         if (regionId == null){
             customers = customerService.findCustomerAll();
@@ -51,7 +52,7 @@ public class CustomerRest {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable("id") Long id){
+    public ResponseEntity<Customer> getCustomer(@PathVariable("id") long id){
         log.info("[getCustomer] Inicio id:"+id);
         Customer customer = customerService.getCustomer(id);
         if (customer == null){
@@ -71,7 +72,7 @@ public class CustomerRest {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Customer> updateCustormer(@PathVariable("id")Long id, @RequestBody Customer customer){
+    public ResponseEntity<?> updateCustomer(@PathVariable("id")long id, @RequestBody Customer customer){
         Customer customerBD = customerService.getCustomer(id);
         if (customerBD== null){
             return ResponseEntity.notFound().build();
@@ -81,8 +82,8 @@ public class CustomerRest {
         return ResponseEntity.ok(customerBD);
     }
 
-    @PutMapping(value = "/{id}")
-    public ResponseEntity<Customer> deleteCustormer(@PathVariable("id")Long id){
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable("id")long id){
         Customer customerBD = customerService.getCustomer(id);
         if (customerBD== null){
             return ResponseEntity.notFound().build();

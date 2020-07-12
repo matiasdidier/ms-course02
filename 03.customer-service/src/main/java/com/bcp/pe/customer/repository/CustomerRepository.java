@@ -1,7 +1,7 @@
 package com.bcp.pe.customer.repository;
 
-import com.bcp.pe.customer.repository.entity.Customer;
-import com.bcp.pe.customer.repository.entity.Region;
+import com.bcp.pe.customer.entity.Customer;
+import com.bcp.pe.customer.entity.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
