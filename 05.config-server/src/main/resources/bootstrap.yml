@@ -6,8 +6,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/digitallab-academy/ms-course-youtube.git
-          searchPaths: config-data
+          uri: https://github.com/matiasdidier/ms-course02.git
+          searchPaths: 00.config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
   security:
